@@ -1,7 +1,9 @@
 
-public class RememberC {
+public class rememberCs {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
 		//변수: 메모리 저장공간의 이름
 		//자료형: 1. 변수가 가질 수 있는 값의 범위를 정한다.
 
@@ -65,3 +67,6 @@ public class RememberC {
 	}
 
 }
+
+
+
