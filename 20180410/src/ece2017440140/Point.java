@@ -53,4 +53,7 @@ public class Point {
 		//새로운 포인트 반환
 		return pnt;
 	}
+	public String toString() {
+		return ("("+this.x+","+this.y+")");
+	}
 }
