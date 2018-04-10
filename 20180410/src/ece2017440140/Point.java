@@ -29,14 +29,15 @@ public class Point {
 	
 	public double distance() {
 		//반환할 결과값 선언
-		double result; //지역변수의 유효범위는 메소드 내부
-		
+		 //지역변수의 유효범위는 메소드 내부
+			return Math.sqrt(x*x+y*y);
 		//거리 계산
-		result = Math.sqrt(x*x+y*y);
-		
-		//거리 반환
-		return result;
 	}
+	public double distance(Point p) {
+		return Math.sqrt((this.x-p.getX())*(this.x-p.getX())+(this.y-p.getY())*(this.y-p.getY()));
+		
+	}
+	//같은 이름의 메소드를 매개변수에 따라서 가능
 	
 	public Point move(Point p) { //매개 변수 p의 유효범위는 메소드 내부
 	
