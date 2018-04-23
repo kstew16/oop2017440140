@@ -1,7 +1,7 @@
 
 public class Point {
 	//필드의 scope(유효범위)는 클래스 내부이다.
-	public double x;
+	public double x; //double:실수
 	public double y;
 	
 	public double getX() {
@@ -14,7 +14,7 @@ public class Point {
 
 	public void setX(double xx) {
 		this.x = xx;
-		xx = 100;
+//		xx = 100;
 	}
 	
     public void setY(double yy) {
