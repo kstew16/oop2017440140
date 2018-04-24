@@ -6,18 +6,21 @@ public class Animal {
 	public Animal(String name) {
 		this.name = name;
 	}
+//	
+	public String getName() {
+		return name;
+    }
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	//¸Þ¼Òµå
     public void sing() {
 		System.out.println(name + " Sing");
 	}
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
     
     
     }
