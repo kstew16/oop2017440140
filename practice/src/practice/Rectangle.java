@@ -1,0 +1,8 @@
+package practice;
+
+public class Rectangle extends Shape{
+	 public Rectangle() {
+//		 super();
+		 System.out.println("rectangle »ý¼ºÀÚ");
+	 }
+}
