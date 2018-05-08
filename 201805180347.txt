@@ -1,3 +1,4 @@
+git add C:\Users\216-06\helpme
 git config --global core.autocrlf true
 git config --global user.name "anything(2017440140)"
 git config --global user.email "kstew16@naver.com"
@@ -5,4 +6,5 @@ git commit -m "추가할 내용 주석달기"
 git add 파일 디렉터리
 git push 
 https://github.com/L0hee/oop2017440114.git
+git push --force origin master
 http://recoveryman.tistory.com/392
