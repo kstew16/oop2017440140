@@ -4,7 +4,7 @@ public class Dog extends Animal {
 	public String name;
 	private String IDN;
 	String nickName;//package 접근지정: 패키지 내에서만 public
-	void print() {
+	public void print() {
 		System.out.println(publicField);
 		//error System.out.println(privateField);
 		System.out.println(packageField);

@@ -15,6 +15,7 @@ public class Test {
 		//2. import 명령어를 사용
 		Dog aDog = new Dog();
 		aDog.name = "Happy";
+//		aDog.print();
 		//error aDog.IDN = "23232"; Error private임
 		//error aDog.nickName = "kk"; nickName은 패키지 접근지정
 		Animal aa = new Animal();
