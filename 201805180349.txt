@@ -8,3 +8,5 @@ git push
 https://github.com/L0hee/oop2017440114.git
 git push --force origin master
 http://recoveryman.tistory.com/392
+
+http://jeikei.tistory.com/entry/GIT-%EB%AA%85%EB%A0%B9%EC%96%B4-%EC%A0%95%EB%A6%AC
