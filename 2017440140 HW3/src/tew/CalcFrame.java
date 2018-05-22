@@ -9,8 +9,7 @@
 
 	public class CalcFrame extends JFrame implements ActionListener {
 		
-		JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0; //모든 메소드에서 접근 가능
-		JButton plus,c,equal;
+		JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0,buttonplus,buttonc,buttonequal; //모든 메소드에서 접근 가능
 		JTextField numberField;
 		int a=0,b=0,result=0;
 		
@@ -24,6 +23,12 @@
 			JPanel p0ce = new JPanel();
 			numberField.setText("0");
 			
+			this.buttonplus = new JButton("+");
+			buttonplus.setActionCommand("buttonplus");
+			this.buttonc = new JButton("C");
+			buttonc.setActionCommand("buttonc");
+			this.buttonequal = new JButton("=");
+			buttonequal.setActionCommand("buttonequal");			
 			this.setLayout(new FlowLayout());//플로우 배치 매니저 사용
 			this.button1 = new JButton("1");
 			button1.setActionCommand("button1");
@@ -45,12 +50,7 @@
 			button9.setActionCommand("button9");
 			this.button0 = new JButton("0");
 			button0.setActionCommand("button0");
-			this.plus = new JButton("+");
-			plus.setActionCommand("plus");
-			this.c = new JButton("C");
-			c.setActionCommand("c");
-			this.equal = new JButton("=");
-			equal.setActionCommand("equal");
+
 			
 			button1.addActionListener(this);
 			button2.addActionListener(this);
@@ -62,7 +62,9 @@
 			button8.addActionListener(this);
 			button9.addActionListener(this);
 			button0.addActionListener(this);
-			
+			buttonplus.addActionListener(this);
+			buttonequal.addActionListener(this);
+			buttonc.addActionListener(this);
 			
 			
 			add(label);
@@ -77,14 +79,14 @@
 			p789.add(button8);
 			p789.add(button9);
 			p0ce.add(button0);
-			p0ce.add(c);
-			p0ce.add(plus);
+			p0ce.add(buttonc);
+			p0ce.add(buttonplus);
 			
 			add(p0ce);
 			add(p123);
 			add(p456);
 			add(p789);
-			add(equal);
+			add(buttonequal);
 			
 
 			setSize(200,300);
@@ -113,6 +115,7 @@
 						a=1;
 						b=0;
 					}
+					System.out.println("1은 눌림?");
 				}
 			if((click.getActionCommand()).equals("button2")) {
 				if(mode.equals("a")) {
@@ -208,31 +211,38 @@
 					b=0;
 				}
 			}
-			if((click.getActionCommand()).equals("c")) {
-				numberField.setText(null);
-				mode="a";
-				a=b=0;
+			
+			if((click.getActionCommand()).equals("buttonc")) {
 				System.out.println("c눌림");
+				numberField.setText(null);
+				a=b=0;
+				mode="a";
+				
 			}
-			if((click.getActionCommand()).equals("equal")) {
+			
+			if((click.getActionCommand()).equals("buttonequal")) {
+
 				mode="result";
+				b+=a;
+				result=b;
 				numberField.setText(null);
 				numberField.setText(toString(b));
-				System.out.println("e누림");
+							
 			}
-			if((click.getActionCommand()).equals("plus")) {
+			if((click.getActionCommand()).equals("buttonplus")) {
 				if(mode.equals("result")) {
+					System.out.println("p눌림");
 					a=b;
 					b=0;
 					numberField.setText(null);
 					mode="a";
-					System.out.println("p눌림");
 				}
 				if(mode.equals("a")) {
 					b+=a;
 					a=0;
+					mode="plus";
 					numberField.setText(null);
-					numberField.setText(b+"+");
+					numberField.setText("+");
 				}
 			}
 			
@@ -248,12 +258,13 @@
 			numberField.setText(null);
 			numberField.setText(resultS);
 			}
+			System.out.println("현재a, b,result는"+a+"=a"+b+"=b"+result+"=rest");	
 		}
 
 
 		private String toString(int result2) {
 			// TODO Auto-generated method stub
-			return ""+result2;
+			return (""+result2);
 		}
 	}
 
