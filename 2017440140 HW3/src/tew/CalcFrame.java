@@ -12,17 +12,16 @@
 		JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button0; //모든 메소드에서 접근 가능
 		JButton plus,c,equal;
 		JTextField numberField;
-		int result=0;
+		int a=0,b=0,result=0;
 		
-		public String tostring() {
-			return("="+result);
-			
-		}
 		CalcFrame() {
 			
 			JLabel label = new JLabel("Calculator(Plus only)");
-			this.numberField = new JTextField(25);
-
+			this.numberField = new JTextField(10);
+			JPanel p123 = new JPanel();
+			JPanel p456 = new JPanel();
+			JPanel p789 = new JPanel();
+			JPanel p0ce = new JPanel();
 			numberField.setText("0");
 			
 			this.setLayout(new FlowLayout());//플로우 배치 매니저 사용
@@ -68,43 +67,193 @@
 			
 			add(label);
 			add(numberField);
-			add(button1); //여기 배치한게 순서
-			add(button2);
-			add(button3);
-			add(button4);
-			add(button5);
-			add(button6);
-			add(button7);
-			add(button8);
-			add(button9);
-			add(button0);
-			add(plus);
-			add(c);
+			p123.add(button1); //여기 배치한게 순서
+			p123.add(button2);
+			p123.add(button3);
+			p456.add(button4);
+			p456.add(button5);
+			p456.add(button6);
+			p789.add(button7);
+			p789.add(button8);
+			p789.add(button9);
+			p0ce.add(button0);
+			p0ce.add(c);
+			p0ce.add(plus);
+			
+			add(p0ce);
+			add(p123);
+			add(p456);
+			add(p789);
 			add(equal);
+			
 
-			setSize(300,200);
+			setSize(200,300);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			//EXIT_ON_CLOSE Static Variable 
 			setTitle("Calculator(+only)");
 			setVisible(true);
 			//프레임은 최상위 컨테이너, 다른 컨테이너 안에 포함될 수 없다.
 			//JFrame JDialog JApplet
-			pack();
+			
 		}
-
+		
+		
 		@Override
 		public void actionPerformed(ActionEvent click) {
 			// TODO Auto-generated method stub
+			String mode = "a";
+			String resultS;
 			//아래 보면 getActionCommand로 가져오는거 있음
 			if((click.getActionCommand()).equals("button1")) {
-				
+					if(mode.equals("a")) {
+						a=a*10+1;
+					}
+					if(mode.equals("result")) {
+						mode="a";
+						a=1;
+						b=0;
+					}
 				}
 			if((click.getActionCommand()).equals("button2")) {
+				if(mode.equals("a")) {
+					a=a*10+2;
+				}
+				if(mode.equals("result")) {
+					mode="a";
+					a=2;
+					b=0;
+				}
 				
 			}
-			String result;
-			result =this.tostring();
-			numberField.setText(result);
+			
+			if((click.getActionCommand()).equals("button3")) {
+				if(mode.equals("a")) {
+					a=a*10+3;
+				}
+
+				if(mode.equals("result")) {
+					mode="a";
+					a=3;
+					b=0;
+				}
+			}
+			if((click.getActionCommand()).equals("button4")) {
+				if(mode.equals("a")) {
+					a=a*10+4;
+				}
+				if(mode.equals("result")) {
+					mode="a";
+					a=4;
+					b=0;
+				}
+			}
+			if((click.getActionCommand()).equals("button5")) {
+				if(mode.equals("a")) {
+					a=a*10+5;
+				}
+				if(mode.equals("result")) {
+					mode="a";
+					a=5;
+					b=0;
+				}
+				
+			}
+			if((click.getActionCommand()).equals("button6")) {
+				if(mode.equals("a")) {
+					a=a*10+6;
+				}
+				if(mode.equals("result")) {
+					mode="a";
+					a=6;
+					b=0;
+				}
+			}
+			if((click.getActionCommand()).equals("button7")) {
+				if(mode.equals("a")) {
+					a=a*10+7;
+				}
+				if(mode.equals("result")) {
+					mode="a";
+					a=7;
+					b=0;
+				}
+			}
+			if((click.getActionCommand()).equals("button8")) {
+				if(mode.equals("a")) {
+					a=a*10+8;
+				}
+				if(mode.equals("result")) {
+					mode="a";
+					a=8;
+					b=0;
+				}
+			}
+			if((click.getActionCommand()).equals("button9")) {
+				if(mode.equals("a")) {
+					a=a*10+9;
+				}
+				if(mode.equals("result")) {
+					mode="a";
+					a=9;
+					b=0;
+				}
+			}
+			if((click.getActionCommand()).equals("button0")) {
+				if(mode.equals("a")) {
+					a=a*10;
+				}
+				if(mode.equals("result")) {
+					mode="a";
+					a=0;
+					b=0;
+				}
+			}
+			if((click.getActionCommand()).equals("c")) {
+				numberField.setText(null);
+				mode="a";
+				a=b=0;
+				System.out.println("c눌림");
+			}
+			if((click.getActionCommand()).equals("equal")) {
+				mode="result";
+				numberField.setText(null);
+				numberField.setText(toString(b));
+				System.out.println("e누림");
+			}
+			if((click.getActionCommand()).equals("plus")) {
+				if(mode.equals("result")) {
+					a=b;
+					b=0;
+					numberField.setText(null);
+					mode="a";
+					System.out.println("p눌림");
+				}
+				if(mode.equals("a")) {
+					b+=a;
+					a=0;
+					numberField.setText(null);
+					numberField.setText(b+"+");
+				}
+			}
+			
+			
+			//출력부
+			if(mode.equals("a")){
+				resultS = toString(a);
+				numberField.setText(null);
+				numberField.setText(resultS);
+			}
+			if(mode.equals("result")) {
+			resultS = toString(result);
+			numberField.setText(null);
+			numberField.setText(resultS);
+			}
+		}
+
+
+		private String toString(int result2) {
+			// TODO Auto-generated method stub
+			return ""+result2;
 		}
 	}
 
