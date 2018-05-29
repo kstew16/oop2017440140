@@ -5,4 +5,8 @@ git commit -m "추가할 내용 주석달기"
 git add 파일 디렉터리
 git push 
 https://github.com/L0hee/oop2017440114.git
+https://github.com/kstew16/oop2017440114.git
 http://recoveryman.tistory.com/392
+git push -u origin master
+git push origin +master
+^모든 오류를 무시한다!!
